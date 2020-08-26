@@ -2,9 +2,8 @@
 
 How've you been?
 I've been doing fine lately.
-Current ideas regarding languages: C++ first, then Java and Kotlin, maybe Python. 
-That's the plan.
-Working hard. 
+Just started Java Developer course prepared by Jetbrains Academy. 
+I will be archiving some exercises here to measure progress.  
 Keep on rocking in the free world. 
 Cheers!
 
