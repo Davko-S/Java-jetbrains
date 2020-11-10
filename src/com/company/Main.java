@@ -11,9 +11,22 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("C:\\Users\\dawid\\Documents\\IT\\dataset_91022.txt");
-        FileReader.lineToInt(file);
-    }
+        Scanner scanner = new Scanner(System.in);
 
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int sum = 0;
+        int divisor = 0;
+        double avg;
+
+        for (int i = a; i <= b; i++) {
+            if (i % 3 == 0) {
+                sum = sum + i;
+                divisor++;
+            }
+        }
+        avg = (double) sum / divisor;
+        System.out.println(avg);
+    }
 }
 
