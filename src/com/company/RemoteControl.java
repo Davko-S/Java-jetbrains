@@ -1,3 +1,5 @@
+package com.company;
+
 import java.util.List;
 
 public class RemoteControl {
@@ -17,6 +19,8 @@ public class RemoteControl {
 
         this.colour = colour;
     }
+
+
     public void volumeUp() {
         currentVolume++;
     }
@@ -52,4 +56,5 @@ public class RemoteControl {
     public String getColour() {
         return colour;
     }
+
 }
