@@ -22,4 +22,7 @@ public class Cat {
     public static int getNumberOfCats() {
         return counter;
     }
+    public String getCatName() {
+        return name;
+    }
 }
