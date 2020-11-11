@@ -1,4 +1,4 @@
-package com.company;
+package pl.davko.jetbrains.excercise;
 
 public class Cat {
     String name;
