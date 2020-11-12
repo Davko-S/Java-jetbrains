@@ -1,5 +1,5 @@
 # Java-jetbrains 
-My first repository.
+My first repository. Self-study Java course.
 
 Language: Java
 
