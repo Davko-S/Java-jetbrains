@@ -1,6 +1,6 @@
 package pl.davko.jetbrains.excercise;
 
-// *** METHODS OVERRIDING ***
+// *** METHODS OVERRIDING + POLYMORPHISM ***
 
 class Publication {
 
@@ -10,8 +10,16 @@ class Publication {
         this.title = title;
     }
 
+    public final String getInfo() {
+        return getType() + getDetails();
+    }
+
+    public String getType() {
+        return "Publication";
+    }
+
     public String getDetails() {
-        return "title=\"" + title + "\"";
+        return ": " + title;
     }
 
 }
@@ -25,11 +33,13 @@ class Newspaper extends Publication {
         super(title);
         this.source = source;
     }
-
-
     @Override
     public String getDetails() {
-        return super.getDetails() + ", source=\"" + source + "\"";
+        return "(source - " + source + ")" + super.getDetails();
+    }
+    @Override
+    public String getType() {
+        return "Newspaper";
     }
 
 }
@@ -45,15 +55,18 @@ class Article extends Publication {
 
     @Override
     public String getDetails() {
-        return super.getDetails() + ", author=\"" + author + "\"";
+        return "(author - " + author + ")" + super.getDetails();
     }
 
+    @Override
+    public String getType() {
+        return "Article";
+    }
 }
 
 class Announcement extends Publication {
 
     private int daysToExpire;
-    private String title;
 
     public Announcement(String title, int daysToExpire) {
         super(title);
@@ -62,7 +75,12 @@ class Announcement extends Publication {
 
     @Override
     public String getDetails() {
-        return super.getDetails() + ", daysToExpire=" + daysToExpire;
+        return "(days to expire - " + daysToExpire + ")" + super.getDetails();
+    }
+
+    @Override
+    public String getType() {
+        return "Announcement";
     }
 }
 
