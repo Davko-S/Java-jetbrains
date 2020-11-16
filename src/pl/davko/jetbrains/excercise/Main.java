@@ -13,18 +13,37 @@ import pl.davko.jetbrains.excercise.*;
 
 public class Main {
     public static void main(String[] args) {
-        Announcement anons = new Announcement("Will sell a house", 30);
-        System.out.println(anons.getInfo());
+        Scanner scanner = new Scanner(System.in);
 
-        ChargeLevel[] levels = ChargeLevel.values();
-        ChargeLevel high = ChargeLevel.HIGH;
-        ChargeLevel low = ChargeLevel.LOW;
+        String[] parts = scanner.nextLine().split("\\s+");
 
-        System.out.printf(Arrays.toString(levels) + " " + "%s" + "\n", high.ordinal());
-        System.out.println(ChargeLevel.findByColor("red"));
-        System.out.println(ChargeLevel.findBySection(4));
+        Account account = new Account();
+        account.setBalance(Long.parseLong(parts[0]));
 
+        Operation operation = Operation.valueOf(parts[1]);
 
+        Long sum = Long.parseLong(parts[2]);
+
+        if (changeBalance(account, operation, sum)) {
+            System.out.println(account.getBalance());
+        }
+
+    }
+
+    public static boolean changeBalance(Account account, Operation operation, Long sum) {
+        if (operation.equals(Operation.DEPOSIT)) {
+            account.setBalance(account.getBalance() + sum);
+            return true;
+        } else if (operation.equals(Operation.WITHDRAW)) {
+            if (sum > account.getBalance()) {
+                System.out.println("Not enough money to withdraw.");
+                return false;
+            } else {
+                account.setBalance(account.getBalance() - sum);
+                return true;
+            }
+        }
+        return false;
     }
 }
 
