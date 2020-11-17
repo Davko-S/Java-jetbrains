@@ -13,37 +13,27 @@ import pl.davko.jetbrains.excercise.*;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        User user = new User();
+        user.setName("John");
 
-        String[] parts = scanner.nextLine().split("\\s+");
+        BaseEntity userEntity = user;
+        userEntity.setId(100);
+        userEntity.setVersion(1);
 
-        Account account = new Account();
-        account.setBalance(Long.parseLong(parts[0]));
+        WebSite site = new WebSite();
+        site.setUrl("https://hyperskill.org");
 
-        Operation operation = Operation.valueOf(parts[1]);
+        BaseEntity siteEntity = site;
+        siteEntity.setId(101);
+        siteEntity.setVersion(1);
 
-        Long sum = Long.parseLong(parts[2]);
+        Visit visit = new Visit();
+        visit.setUser(user);
+        visit.setSite(site);
 
-        if (changeBalance(account, operation, sum)) {
-            System.out.println(account.getBalance());
-        }
-
-    }
-
-    public static boolean changeBalance(Account account, Operation operation, Long sum) {
-        if (operation.equals(Operation.DEPOSIT)) {
-            account.setBalance(account.getBalance() + sum);
-            return true;
-        } else if (operation.equals(Operation.WITHDRAW)) {
-            if (sum > account.getBalance()) {
-                System.out.println("Not enough money to withdraw.");
-                return false;
-            } else {
-                account.setBalance(account.getBalance() - sum);
-                return true;
-            }
-        }
-        return false;
+        BaseEntity baseVisit = visit;
+        baseVisit.setId(102);
+        baseVisit.setVersion(103);
     }
 }
 
