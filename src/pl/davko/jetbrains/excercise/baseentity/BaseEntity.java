@@ -1,6 +1,6 @@
-package pl.davko.jetbrains.excercise;
+package pl.davko.jetbrains.excercise.baseentity;
 
-abstract class  BaseEntity {
+public abstract class  BaseEntity {
 
     protected long id;
     protected long version;

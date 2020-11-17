@@ -1,6 +1,6 @@
-package pl.davko.jetbrains.excercise;
+package pl.davko.jetbrains.excercise.baseentity;
 
-class Visit extends BaseEntity {
+public class Visit extends BaseEntity {
 
     protected User user;
     protected WebSite site;

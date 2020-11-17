@@ -1,6 +1,6 @@
-package pl.davko.jetbrains.excercise;
+package pl.davko.jetbrains.excercise.baseentity;
 
-class WebSite extends BaseEntity {
+public class WebSite extends BaseEntity {
 
     protected String url;
 

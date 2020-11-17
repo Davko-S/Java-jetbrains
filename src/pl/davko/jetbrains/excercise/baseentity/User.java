@@ -1,6 +1,6 @@
-package pl.davko.jetbrains.excercise;
+package pl.davko.jetbrains.excercise.baseentity;
 
-class User extends BaseEntity {
+public class User extends BaseEntity {
 
     protected String name;
 

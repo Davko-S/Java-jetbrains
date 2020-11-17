@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import pl.davko.jetbrains.excercise.*;
+import pl.davko.jetbrains.excercise.baseentity.*;
 
 
 public class Main {
