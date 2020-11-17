@@ -35,6 +35,7 @@ public class Main {
         BaseEntity baseVisit = visit;
         baseVisit.setId(102);
         baseVisit.setVersion(103);
+
     }
 }
 
