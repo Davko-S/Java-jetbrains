@@ -36,6 +36,8 @@ public class Main {
         baseVisit.setId(102);
         baseVisit.setVersion(103);
 
+        System.out.println(-30 / 7);
+
     }
 }
 
