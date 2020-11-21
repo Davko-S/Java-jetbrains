@@ -10,11 +10,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import pl.davko.jetbrains.excercise.*;
 import pl.davko.jetbrains.excercise.baseentity.*;
+import pl.davko.jetbrains.excercise.geometry.*;
 
 
 public class Main {
     public static void main(String[] args) {
-        
+        Measurable circle = new Circle(1);
+        double area = circle.area();
+
+        System.out.println(area);
+
     }
 }
 
