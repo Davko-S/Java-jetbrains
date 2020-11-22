@@ -9,5 +9,5 @@ abstract class IntBinaryOperation {
         this.secondArg = secondArg;
     }
 
-    public abstract int perform();
+    abstract int perform();
 }
