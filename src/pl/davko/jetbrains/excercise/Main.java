@@ -14,7 +14,13 @@ import pl.davko.jetbrains.excercise.geometry.*;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+
+        String palindrome = scanner.next();
+
+        Palindrome.checkPalindrome(palindrome);
+
 
     }
 }
