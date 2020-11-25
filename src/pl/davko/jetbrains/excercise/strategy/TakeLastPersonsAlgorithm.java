@@ -1,13 +1,21 @@
 package pl.davko.jetbrains.excercise.strategy;
 
-public class TakeLastPersonsAlgorithm {
+import java.util.Arrays;
+
+public class TakeLastPersonsAlgorithm implements PersonSelectionAlgorithm {
+
+    private final int count;
 
     public TakeLastPersonsAlgorithm(int count) {
-        // write your code here
+        this.count = count;
     }
 
     @Override
     public Person[] select(Person[] persons) {
-        // write your code here
+        if (count == 1) {
+            return new Person[]{persons[persons.length - 1]};
+        } else {
+            return Arrays.copyOfRange(persons, persons.length - count, persons.length);
+        }
     }
 }
