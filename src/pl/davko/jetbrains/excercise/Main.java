@@ -12,45 +12,21 @@ import pl.davko.jetbrains.excercise.*;
 import pl.davko.jetbrains.excercise.baseentity.*;
 import pl.davko.jetbrains.excercise.geometry.*;
 import pl.davko.jetbrains.excercise.strategy.*;
-
+import pl.davko.jetbrains.excercise.factory.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
         final Scanner scanner = new Scanner(System.in);
-
-        final int count = Integer.parseInt(scanner.nextLine());
-        final Person[] persons = new Person[count];
-
-        for (int i = 0; i < count; i++) {
-            persons[i] = new Person(scanner.nextLine());
-        }
-
-        final String[] configs = scanner.nextLine().split("\\s+");
-
-        final PersonSelectionAlgorithm alg = create(configs[0], Integer.parseInt(configs[1]));
-        SelectionContext ctx = new SelectionContext();
-        ctx.setAlgorithm(alg);
-
-        final Person[] selected = ctx.selectPersons(persons);
-        for (Person p : selected) {
-            System.out.println(p.name);
-        }
-
-    }
-
-    public static PersonSelectionAlgorithm create(String algType, int param) {
-        switch (algType) {
-            case "STEP": {
-                return new TakePersonsWithStepAlgorithm(param);
-            }
-            case "LAST": {
-                return new TakeLastPersonsAlgorithm(param);
-            }
-            default: {
-                throw new IllegalArgumentException("Unknown algorithm type " + algType);
-            }
+        final String type = scanner.next();
+        final boolean produceToy = scanner.nextBoolean();
+        final ClockFactory factory = new ClockFactory(produceToy);
+        final Clock clock = factory.produce(type);
+        if (clock == null) {
+            System.out.println(clock);
+        } else {
+            clock.tick();
         }
     }
+
 }
 
