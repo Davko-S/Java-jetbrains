@@ -18,14 +18,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final char type = scanner.next().charAt(0);
-        final String model = scanner.next();
-        final long power = scanner.nextLong();
-        final Motor motor = MotorStaticFactory.make(type, model, power);
-        if (motor == null) {
-            System.out.println(motor);
+
+        final String type = scanner.next();
+        Time time = null;
+
+        switch (type) {
+            case "noon":
+                time = Time.noon();
+                break;
+            default:
+                time = null;
+                break;
+        }
+
+        if (time == null) {
+            System.out.println(time);
         } else {
-            System.out.println(motor.getClass().getName() + " " + motor.model + " " + motor.power);
+            System.out.println(String.format("%s %s %s", time.hour, time.minute, time.second));
         }
     }
 }

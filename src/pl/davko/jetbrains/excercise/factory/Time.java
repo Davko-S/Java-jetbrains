@@ -1,10 +1,11 @@
 package pl.davko.jetbrains.excercise.factory;
 
-class Time {
+public class Time {
 
-    int hour;
-    int minute;
-    int second;
+
+    public int hour;
+    public int minute;
+    public int second;
 
     public Time(int hour, int minute, int second) {
         this.hour = hour;
@@ -12,10 +13,10 @@ class Time {
         this.second = second;
     }
 
-
-    public static Time noon(int hour, int minute, int second) {
-        return new Time(hour = 12, minute = 0, second = 0);
+    public static Time noon() {
+        return new Time(12, 0, 0 );
     }
+
 
 //    public static Time midnight() {
     // write your code here
