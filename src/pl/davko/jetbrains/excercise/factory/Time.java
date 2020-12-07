@@ -17,16 +17,20 @@ public class Time {
         return new Time(12, 0, 0 );
     }
 
+    public static Time midnight() {
+        return new Time(0, 0, 0);
+    }
 
-//    public static Time midnight() {
-    // write your code here
-//    }
+    public static Time ofSeconds(long seconds) {
+        int h = (int) Math.floor(seconds / 3600.0 % 24);
+        int m = (int) Math.floor(seconds % 3600.0 / 60);
+        int s = (int) (((int)seconds % 3600.0 / 60 - m) * 60);
+        System.out.println(s);
 
-//    public static Time ofSeconds(long seconds) {
-        // write your code here
-//    }
+        return new Time(h, m, s);
+    }
 
 //    public static Time of(int hour, int minute, int second) {
-        // write your code here
+//
 //    }
 }

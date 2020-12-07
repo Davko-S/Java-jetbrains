@@ -18,11 +18,32 @@ import pl.davko.jetbrains.excercise.factory.*;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
 
-        int army = scanner.nextInt();
+        final String type = scanner.next();
+        Time time = null;
 
-        System.out.println(Game.countSoldiers(army));
+        switch (type) {
+            case "noon":
+                time = Time.noon();
+                break;
+            case "midnight":
+                time = Time.midnight();
+                break;
+            case "seconds":
+                time = Time.ofSeconds(scanner.nextInt());
+                break;
+            default:
+                time = null;
+                break;
+        }
+
+        if (time == null) {
+            System.out.println(time);
+        } else {
+            System.out.println(String.format("%s %s %s", time.hour, time.minute, time.second));
+        }
+
     }
 }
 
