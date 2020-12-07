@@ -30,6 +30,12 @@ public class Main {
             case "midnight":
                 time = Time.midnight();
                 break;
+            case "hms":
+                int h = scanner.nextInt();
+                int m = scanner.nextInt();
+                int s = scanner.nextInt();
+                time = Time.of(h, m, s);
+                break;
             case "seconds":
                 time = Time.ofSeconds(scanner.nextInt());
                 break;
