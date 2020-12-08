@@ -9,7 +9,7 @@ public class ClockFactory {
     }
 
     public Clock produce(String type) {
-        switch(type) {
+        switch (type) {
             case "SAND":
                 return new SandClock();
             case "MECH":
@@ -17,12 +17,7 @@ public class ClockFactory {
             case "DIGITAL":
                 return new DigitalClock();
             default:
-                if (produceToyClock) {
-                    return new ToyClock();
-                } else {
-                    return null;
-                }
-
+                return null;
         }
     }
 }
