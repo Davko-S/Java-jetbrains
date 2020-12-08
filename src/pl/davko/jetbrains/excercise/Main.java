@@ -18,6 +18,8 @@ public class Main {
         Table strangeTable = tableStore.orderTable("Mysterious table");
         Table officeTable = tableStore.orderTable("office");
         Table kitchenTable = tableStore.orderTable("kitchen");
+        Table officeTable2 = tableStore.orderTable("Office");
+        Table labTable = tableStore.orderTable("lab");
     }
 }
 
