@@ -9,47 +9,25 @@ import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import pl.davko.jetbrains.excercise.*;
-import pl.davko.jetbrains.excercise.baseentity.*;
-import pl.davko.jetbrains.excercise.geometry.*;
-import pl.davko.jetbrains.excercise.problems.Game;
-import pl.davko.jetbrains.excercise.strategy.*;
-import pl.davko.jetbrains.excercise.factory.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        final Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        final String type = scanner.next();
-        Time time = null;
+        int height = scanner.nextInt();
+        int bridges = scanner.nextInt();
+        boolean willCrash = false;
+        int bridgeId = 0;
 
-        switch (type) {
-            case "noon":
-                time = Time.noon();
-                break;
-            case "midnight":
-                time = Time.midnight();
-                break;
-            case "hms":
-                int h = scanner.nextInt();
-                int m = scanner.nextInt();
-                int s = scanner.nextInt();
-                time = Time.of(h, m, s);
-                break;
-            case "seconds":
-                time = Time.ofSeconds(scanner.nextInt());
-                break;
-            default:
-                time = null;
-                break;
+        for (int i = 0; i < bridges; i++) {
+            int bH = scanner.nextInt();
+            if (bH <= height && !willCrash) {
+                bridgeId = i + 1;
+                willCrash = true;
+            }
         }
-
-        if (time == null) {
-            System.out.println(time);
-        } else {
-            System.out.println(String.format("%s %s %s", time.hour, time.minute, time.second));
-        }
-
+        System.out.println(willCrash ? "Will crash on bridge " + bridgeId : "Will not crash");
     }
 }
 
