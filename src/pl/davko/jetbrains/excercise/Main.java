@@ -15,15 +15,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String word = scanner.next();
-        String result = "";
+        String firstName = scanner.next();
+        String secondName = scanner.next();
 
-        if (word.length() > 2 && word.length() % 2 == 0) {
-            result = word.substring(0, word.length() / 2 - 1) + word.substring(word.length() / 2 + 1);
-            } else if (word.length() > 2) {
-            result = word.substring(0, (word.length() - 1) / 2) + word.substring((word.length() - 1) / 2 + 1);
-        }
-        System.out.println(result);
+        System.out.println(connectNames(firstName, secondName));
+
+    }
+
+    public static String connectNames(String firstName, String secondName) {
+        return firstName + " " + secondName;
     }
 }
 
