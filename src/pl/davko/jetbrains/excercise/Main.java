@@ -8,22 +8,11 @@ import java.util.Random;
 import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import pl.davko.jetbrains.excercise.*;
-import pl.davko.jetbrains.excercise.factory.*;
+import pl.davko.jetbrains.excercise.potd.IntSequence;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        String firstName = scanner.next();
-        String secondName = scanner.next();
-
-        System.out.println(connectNames(firstName, secondName));
-
-    }
-
-    public static String connectNames(String firstName, String secondName) {
-        return firstName + " " + secondName;
+        System.out.println(IntSequence.loopAdd());
     }
 }
 
