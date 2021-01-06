@@ -4,23 +4,24 @@ import java.util.Scanner;
 
 public class IntSequence {
 
+    /*The program takes int sequence as input value and stops when the sum is either > 1000 or if user inputs 0*/
+
     public static int loopAdd() {
         Scanner scanner = new Scanner(System.in);
 
-        int first = scanner.nextInt();
-        int result = first - 1000;
-        if (first < 1000) {
-            int sum = first;
-            while (first > 0) {
-                first = scanner.nextInt();
+        int n = scanner.nextInt();
+        int sum = n - 1000;
+        if (n < 1000) {
+            sum = n;
+            while (n > 0) {
+                n = scanner.nextInt();
                 if (sum < 1000) {
-                    sum = sum + first;
-                    result = sum;
+                    sum = sum + n;
                 } else {
-                    result = sum - 1000;
+                    sum = sum - 1000;
                 }
             }
         }
-        return result;
+        return sum;
     }
 }
