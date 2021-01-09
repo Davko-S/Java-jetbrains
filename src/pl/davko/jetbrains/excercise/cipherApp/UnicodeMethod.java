@@ -2,7 +2,6 @@ package pl.davko.jetbrains.excercise.cipherApp;
 
 public class UnicodeMethod extends Method {
 
-
     public static String encrypt(Message message) {
         char[] rawString = message.getData().toCharArray();
         for (int i = 0; i < rawString.length; i++) {
@@ -10,7 +9,6 @@ public class UnicodeMethod extends Method {
         }
         return new String(rawString);
     }
-
 
     public static String decrypt(Message message) {
         char[] rawString = message.getData().toCharArray();

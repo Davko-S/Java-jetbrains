@@ -3,6 +3,7 @@ package pl.davko.jetbrains.excercise.cipherApp;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import static java.lang.Integer.*;
@@ -11,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Message message = new Message("enc", "zezol w dupie", "", "", "shift", false, 5);
+        Message message = new Message("enc", "", "", "", "shift", false, 0);
 
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-mode")) {
@@ -30,9 +31,28 @@ public class Main {
             }
         }
 
+        switch (message.getType()) {
+            case "enc": if (message.getAlg().equals("unicode")) {
+                System.out.println(UnicodeMethod.encrypt(message));
+            } else {
+                System.out.println(ShiftMethod.encrypt(message));
+            }
+            break;
+            case "dec": if (message.getAlg().equals("unicode")) {
+                System.out.println(UnicodeMethod.decrypt(message));
+            } else {
+                System.out.println(ShiftMethod.decrypt(message));
+            }
+            break;
+        }
+
+
+
+
+
         //Reading text from file when necessary
 
-        if ("".equals(message.getData()) && !"".equals(message.getInFile())) {
+        /*if ("".equals(message.getData()) && !"".equals(message.getInFile())) {
             try {
                 File file = new File(message.inFile);
                 Scanner scanner = new Scanner(file);
@@ -42,30 +62,37 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
-
-        if (message.getType().equals("enc")) {
-            if (message.isOut) {
-                try {
-                    File output = new File(message.outFile);
-                    if (output.createNewFile()) {
-                        System.out.println("File created");
-                    } else {
-                        System.out.println("File already exist");
-                    }
-                    FileWriter writer = new FileWriter(output);
+        if (message.isOut) {
+            try {
+                File output = new File(message.outFile);
+                if (output.createNewFile()) {
+                    System.out.println("File created");
+                } else {
+                    System.out.println("File already exist");
+                }
+                FileWriter writer = new FileWriter(output);
+                if (message.getType().equals("enc")) {
                     if (message.getAlg().equals("unicode")) {
                         writer.write(UnicodeMethod.encrypt(message));
-                    } else {
-                        writer.write(ShiftMethod.encrypt(message));
-                    }
-                    Scanner scanner = new Scanner(message.outFile); // control
-                    System.out.println(scanner.nextLine()); //control
-                    writer.close();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+
+
+
+
+
+        if (message.getType().equals("enc")) {
+            if (message.getAlg().equals("unicode")) {
+                writer.write(UnicodeMethod.encrypt(message));
             } else {
-                System.out.println(UnicodeMethod.encrypt(message));
+                writer.write(ShiftMethod.encrypt(message));
+            }
+            Scanner scanner = new Scanner(message.outFile); // control
+            System.out.println(scanner.nextLine()); //control
+            writer.close();
+        } else {
+                System.out.println(ShiftMethod.encrypt(message));
             }
         } else if (message.getType().equals("dec")) {
             if (message.isOut) {
@@ -86,9 +113,11 @@ public class Main {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
+            } else if (message.getAlg().equals("shift")) {
+                System.out.println(ShiftMethod.decrypt(message));
             } else {
                 System.out.println(UnicodeMethod.decrypt(message));
             }
-        }
+        }*/
     }
 }
