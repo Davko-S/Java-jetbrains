@@ -12,12 +12,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Message message = new Message("enc", "", "", "", "shift", false, 0);
-
+        String mode = "enc";
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-mode")) {
-                message.setType(args[i + 1]);
-            } else if (args[i].equals("-key")) {
+                mode = (args[i + 1]);
+            }
+        }
+
+        Message message = new EncryptedMessage("", "", "", "shift", false, 0);
+
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equals("-key")) {
                 message.setKey(parseInt(args[i + 1]));
             } else if (args[i].equals("-data")) {
                 message.setData(args[i + 1]);
@@ -30,25 +35,6 @@ public class Main {
                 message.setAlg(args[i + 1]);
             }
         }
-
-        switch (message.getType()) {
-            case "enc": if (message.getAlg().equals("unicode")) {
-                System.out.println(UnicodeMethod.encrypt(message));
-            } else {
-                System.out.println(ShiftMethod.encrypt(message));
-            }
-            break;
-            case "dec": if (message.getAlg().equals("unicode")) {
-                System.out.println(UnicodeMethod.decrypt(message));
-            } else {
-                System.out.println(ShiftMethod.decrypt(message));
-            }
-            break;
-        }
-
-
-
-
 
         //Reading text from file when necessary
 

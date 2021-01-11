@@ -1,8 +1,7 @@
 package pl.davko.jetbrains.excercise.cipherApp;
 
-public class Message {
+public abstract class Message {
 
-    String type;
     String data;
     String inFile;
     String outFile;
@@ -10,22 +9,13 @@ public class Message {
     boolean isOut;
     int key;
 
-    public Message(String type, String data, String inFile, String outFile, String alg, boolean isOut, int key) {
-        this.type = type;
+    public Message(String data, String inFile, String outFile, String alg, boolean isOut, int key) {
         this.data = data;
         this.inFile = inFile;
         this.outFile = outFile;
         this.alg = alg;
         this.isOut = isOut;
         this.key = key;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getInFile() {
