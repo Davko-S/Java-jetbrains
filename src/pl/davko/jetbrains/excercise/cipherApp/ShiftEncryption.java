@@ -1,8 +1,9 @@
 package pl.davko.jetbrains.excercise.cipherApp;
 
-public class ShiftEncryption implements Encrypt {
+public class ShiftEncryption implements TextOperation {
+
     @Override
-    public void encrypt() {
-        //...
+    public void changeText() {
+
     }
 }
