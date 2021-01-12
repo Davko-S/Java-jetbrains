@@ -1,8 +1,9 @@
 package pl.davko.jetbrains.excercise.cipherApp;
 
-public class UnicodeDecryption implements Decrypt {
-    @Override
-    public void decrypt() {
+public class UnicodeDecryption implements TextOperation {
 
+    @Override
+    public void changeText() {
+        //...
     }
 }

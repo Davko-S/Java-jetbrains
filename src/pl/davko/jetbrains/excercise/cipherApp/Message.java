@@ -1,6 +1,6 @@
 package pl.davko.jetbrains.excercise.cipherApp;
 
-public abstract class Message {
+public class Message {
 
     String data;
     String inFile;

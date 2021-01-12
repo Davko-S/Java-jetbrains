@@ -19,7 +19,7 @@ public class Main {
             }
         }
 
-        Message message = new EncryptedMessage("", "", "", "shift", false, 0);
+      Message message = new Message("", "", "", "shift", false, 0);
 
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("-key")) {
