@@ -6,7 +6,11 @@ import java.util.Scanner;
 public class ArrayAsParameter {
 
     public static void addValueByIndex(long[] array, int index, long value) {
-        array[index] = array[index] + value;
+        try {
+            array[index] = array[index] + value;
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void makeArrayFromScanner() {
