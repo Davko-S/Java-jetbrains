@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ArrayAsParameter {
 
     public static void addValueByIndex(long[] array, int index, long value) {
-
+        array[index] = array[index] + value;
     }
 
     public static void makeArrayFromScanner() {
@@ -14,6 +14,7 @@ public class ArrayAsParameter {
         long[] array = Arrays.stream(scanner.nextLine().split(" "))
                 .mapToLong(Long::parseLong)
                 .toArray();
-        //Arrays.stream(array).forEach(e -> System.out.print(e + " "));
+        addValueByIndex(array, 2, 100);
+        Arrays.stream(array).forEach(e -> System.out.print(e + " "));
     }
 }
