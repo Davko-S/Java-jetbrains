@@ -9,4 +9,12 @@ public class Motor {
         this.model = model;
         this.power = power;
     }
+
+    public String getModel() {
+        return model;
+    }
+
+    public long getPower() {
+        return power;
+    }
 }
