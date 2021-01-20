@@ -69,4 +69,39 @@ public class MultiDimension {
             System.out.println();
         }
     }
+
+    public static void colorMatrix() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String rowOne = scanner.nextLine();
+        String rowTwo = scanner.nextLine();
+        String rowThree = scanner.nextLine();
+        String rowFour = scanner.nextLine();
+
+        char[] one = rowOne.toCharArray();
+        char[] two = rowTwo.toCharArray();
+        char[] three = rowThree.toCharArray();
+        char[] four = rowFour.toCharArray();
+
+        boolean isPretty = true;
+
+        for (int i = 0; i < 3; i++) {
+            if (one[i] == two[i] && one[i] == one[i + 1] && one[i] == two[i + 1]) {
+                isPretty = false;
+            } else if (two[i] == three[i] && two[i] == two[i + 1] && two[i + 1] == three[i + 1]) {
+                isPretty = false;
+            } else if (three[i] == four[i] && three[i] == three[i + 1] && three[i + 1] == four[i + 1]) {
+                isPretty = false;
+            }
+        }
+//        System.out.println(Arrays.toString(one));
+//        System.out.println(Arrays.toString(two));
+//        System.out.println(Arrays.toString(three));
+//        System.out.println(Arrays.toString(four));
+
+        System.out.println(isPretty ? "YES" : "NO");
+
+
+    }
 }

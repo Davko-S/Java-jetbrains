@@ -6,7 +6,7 @@ import pl.davko.jetbrains.excercise.basics.arrays.RightRotation;
 
 public class Main {
     public static void main(String[] args) {
-        MultiDimension.diagonalArray();
+        MultiDimension.colorMatrix();
     }
 }
 
