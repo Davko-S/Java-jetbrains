@@ -1,4 +1,4 @@
-package pl.davko.jetbrains.excercise.basics;
+package pl.davko.jetbrains.excercise.basics.arrays;
 
 import java.util.Arrays;
 import java.util.Scanner;
