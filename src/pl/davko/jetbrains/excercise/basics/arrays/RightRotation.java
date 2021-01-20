@@ -23,7 +23,17 @@ public class RightRotation {
             }
             newArray[newIndex] = array[i];
         }
+        //*** Printing using Arrays.toString()
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(newArray));
+        
+        //*** Printing using for each loop
+        for (int before: array) {
+            System.out.print(before + " ");
+        }
+        System.out.println("");
+        for (int after: newArray) {
+            System.out.print(after + " ");
+        }
     }
 }
