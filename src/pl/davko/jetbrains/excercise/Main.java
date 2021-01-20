@@ -6,7 +6,7 @@ import pl.davko.jetbrains.excercise.basics.arrays.RightRotation;
 
 public class Main {
     public static void main(String[] args) {
-        MultiDimension.make3dArray(2, 5, 10);
+        MultiDimension.diagonalArray();
     }
 }
 
