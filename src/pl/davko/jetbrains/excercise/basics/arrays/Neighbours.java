@@ -1,7 +1,6 @@
 package pl.davko.jetbrains.excercise.basics.arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Neighbours {
@@ -27,10 +26,9 @@ public class Neighbours {
             arrayRow.add(array);
             input = scanner.nextLine();
         }
-        //Converting ArrayList to int[][]
+        //Converting ArrayList<int[]> to int[][]
         int[][] array = arrayRow.toArray(new int[arrayRow.size()][]);
         int[][] results = new int[array.length][array[0].length];
-
 
         //Printing the results as output after calculations
         for (int i = 0; i < array.length; i++) {
