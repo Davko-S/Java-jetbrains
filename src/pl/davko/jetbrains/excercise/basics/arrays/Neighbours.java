@@ -12,10 +12,10 @@ public class Neighbours {
         String input = scanner.nextLine();
 
         //Initializing an ArrayList to be able to add rows dynamically depending on user's input
-        ArrayList<int[]> arrayRow = new ArrayList<int[]>();
+        ArrayList<int[]> arrayRow = new ArrayList<>();
 
         //Loop which changes input String via String[] to int[] array and makes calculations
-        while (!input.equals("end")) {
+        while (!"end".equals(input)) {
 
             String[] numbers = input.split(" ");
             int[] array = new int[numbers.length];
