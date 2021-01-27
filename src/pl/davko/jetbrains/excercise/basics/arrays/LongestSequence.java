@@ -6,17 +6,16 @@ public class LongestSequence {
     public static void countSequence() {
         Scanner scanner = new Scanner(System.in);
 
-        int length = scanner.nextInt();     // Size of input array
+        int length = scanner.nextInt();
         int[] ints = new int[length];
 
+        // Checking if sequence length is one or longer
         if (length == 1) {
             System.out.println("1");
         } else {
             for (int i = 0; i < length; i++) {
                 ints[i] = scanner.nextInt();
-                System.out.print(ints[i] + " ");
             }
-            System.out.println();
 
             // Count the length of ascending sequence
             int oldCounter = 1;
@@ -25,9 +24,10 @@ public class LongestSequence {
                 if (ints[i] > ints[i - 1]) {
                     counter++;
                 } else {
-                    if (counter > oldCounter)
+                    if (counter > oldCounter) {
                         oldCounter = counter;
                         counter = 1;
+                    }
                 }
             }
             System.out.println(Math.max(counter, oldCounter));
