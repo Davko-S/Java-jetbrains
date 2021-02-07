@@ -18,11 +18,15 @@ public class ParseUrl {
         String host = "";
         String password = "";
 
-        String[] first = cutTwo[0].split("pass=");
-        if (first[0].equals("") && first[1].equals("")) {
-            System.out.println("true");
+        String[] first = cutTwo[0].split("=");
+        if (first[0].contains("pass")) {
+            pass = first[1];
+            password = pass;
         } else {
-            System.out.println("false");
+            port = first[1];
         }
+        System.out.println("pass: " + pass);
+        System.out.println("password: " + password);
+        System.out.println("port: " + port);
     }
 }
