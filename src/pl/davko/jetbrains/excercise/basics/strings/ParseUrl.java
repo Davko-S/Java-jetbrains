@@ -27,4 +27,14 @@ public class ParseUrl {
             }
         }
     }
+
+    public static void countWords() {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        String[] words = input.split(" ");
+        for (String w : words) {
+            System.out.println(w);
+        }
+    }
 }
