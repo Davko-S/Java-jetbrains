@@ -6,8 +6,8 @@ public enum ChargeLevel {
         MEDIUM(2, "yellow"),
         LOW(1, "red");
 
-        int sections;
-        String color;
+        private final int sections;
+        private final String color;
 
         ChargeLevel(int sections, String color) {
                 this.sections = sections;
