@@ -1,4 +1,4 @@
-package pl.davko.jetbrains.excercise.basics;
+package pl.davko.jetbrains.excercise.basics.iostreams;
 
 import java.io.File;
 import java.io.FileNotFoundException;
