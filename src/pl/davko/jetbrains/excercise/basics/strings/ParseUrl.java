@@ -1,6 +1,7 @@
 package pl.davko.jetbrains.excercise.basics.strings;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class ParseUrl {
@@ -28,13 +29,19 @@ public class ParseUrl {
         }
     }
 
-    public static void countWords() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+    public static void countWords() throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String input = reader.readLine();
+        int loopReps = 0;
+        reader.close();
 
-        String[] words = input.split(" ");
+        String[] words = input.split("\\s+");
         for (String w : words) {
-            System.out.println(w);
+            loopReps++;
+            if ("".equals(w)) {
+                loopReps--;
+            }
         }
+        System.out.println(loopReps);
     }
 }
