@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+        
         //Variables for content given via args[]
 
         ActionType actionType = ActionType.ENCRYPT;
@@ -22,19 +22,16 @@ public class Main {
         //Reading the parameters from input
 
         for (int i = 0; i < args.length; i++) {
-            if (args[i].equals("-mode")) {
-                actionType = ActionType.parse(args[i + 1]);
-            } else if (args[i].equals("-key")) {
-                key = Integer.parseInt(args[i + 1]);
-            } else if (args[i].equals("-data")) {
-                data = args[i + 1];
-            } else if (args[i].equals("-in")) {
-                inFile = args[i + 1];
-            } else if (args[i].equals("-out")) {
-                outFile = args[i + 1];
-                isOut = true;
-            } else if (args[i].equals("-alg")) {
-                algorithmType = AlgorithmType.parse(args[i + 1]);
+            switch (args[i]) {
+                case "-mode" -> actionType = ActionType.parse(args[i + 1]);
+                case "-key" -> key = Integer.parseInt(args[i + 1]);
+                case "-data" -> data = args[i + 1];
+                case "-in" -> inFile = args[i + 1];
+                case "-out" -> {
+                    outFile = args[i + 1];
+                    isOut = true;
+                }
+                case "-alg" -> algorithmType = AlgorithmType.parse(args[i + 1]);
             }
         }
 
@@ -46,8 +43,8 @@ public class Main {
                 Scanner scanner = new Scanner(file);
                 data = scanner.nextLine();
                 scanner.close();
-            } catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
+            } catch (FileNotFoundException noFileException) {
+                System.out.println(noFileException.getMessage());
             }
         }
 
