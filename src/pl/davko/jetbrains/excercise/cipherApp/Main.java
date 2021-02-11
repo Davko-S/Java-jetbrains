@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         //Variables for content given via args[]
 
         ActionType actionType = ActionType.ENCRYPT;
@@ -34,6 +34,8 @@ public class Main {
                 case "-alg" -> algorithmType = AlgorithmType.parse(args[i + 1]);
             }
         }
+        CipherAction cipherAction = new CipherActionFactory().make(actionType, algorithmType);
+        String result = cipherAction.invoke(data, key);
 
         //Reading text from file when necessary
 
