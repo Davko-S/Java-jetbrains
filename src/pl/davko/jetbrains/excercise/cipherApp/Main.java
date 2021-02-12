@@ -3,13 +3,14 @@ package pl.davko.jetbrains.excercise.cipherApp;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        //Variables for content given via args[]
+        //Variables for input from args[]
 
         ActionType actionType = ActionType.ENCRYPT;
         String data = "";
@@ -34,8 +35,10 @@ public class Main {
                 case "-alg" -> algorithmType = AlgorithmType.parse(args[i + 1]);
             }
         }
+
         CipherAction cipherAction = new CipherActionFactory().make(actionType, algorithmType);
         String result = cipherAction.invoke(data, key);
+        System.out.println(result);
 
         //Reading text from file when necessary
 
@@ -63,11 +66,9 @@ public class Main {
                     }
                     FileWriter writer = new FileWriter(output);
                     writer.write(encryptString(data, key, algorithmType));
-                    //Scanner scanner = new Scanner(outFile);  control
-                    //System.out.println(scanner.nextLine()); //control
                     writer.close();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                } catch (IOException exception) {
+                    System.out.println(exception.getMessage());
                 }
             } else {
                 System.out.println(encryptString(data, key, algorithmType));
@@ -92,56 +93,6 @@ public class Main {
             }
         } else {
             System.out.println("You are an idiot!");
-        }
-    }
-
-    //Encryption method with added algorithm type as parameter
-    public static String encryptString(String s, int key, AlgorithmType algorithmType) {
-        char[] ourString = s.toCharArray();
-        if (algorithmType == AlgorithmType.UNICODE) {
-            for (int i = 0; i < ourString.length; i++) {
-                ourString[i] = changeChar(ourString[i], key);
-            }
-            return new String(ourString);
-        } else {
-            for (int i = 0; i < ourString.length; i++) {
-                ourString[i] = changeCharShift(ourString[i], key);
-            }
-            return new String(ourString);
-        }
-    }
-
-    //Decryption method with added algorithm type as parameter
-    public static String decryptString(int key, String s, AlgorithmType algorithmType) {
-        char[] ourString = s.toCharArray();
-        if (algorithmType == AlgorithmType.UNICODE) {
-            for (int i = 0; i < ourString.length; i++) {
-                ourString[i] = changeChar(ourString[i], (-1) * key);
-            }
-            return new String(ourString);
-        } else {
-            for (int i = 0; i < ourString.length; i++) {
-                ourString[i] = changeCharShift(ourString[i], 26 - (key % 26));
-            }
-            return new String(ourString);
-        }
-    }
-
-    public static char changeChar(char c, int key) {
-        return (char) (c + key);
-    }
-
-    public static char changeCharShift(char c, int key) {
-        if (c == ' ') {
-            return c;
-        } else if ((int) c < 97) {
-            int originalPosition = c - 'A';
-            int newPosition = (originalPosition + key) % 26;
-            return (char) ('A' + newPosition);
-        } else {
-            int originalPosition = c - 'a';
-            int newPosition = (originalPosition + key) % 26;
-            return (char) ('a' + newPosition);
         }
     }
 }
