@@ -85,8 +85,8 @@ public class Main {
                     FileWriter writer = new FileWriter(output);
                     writer.write(decryptString(key, data, algorithmType));
                     writer.close();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                } catch (IOException exception) {
+                    System.out.println(exception.getMessage());
                 }
             } else {
                 System.out.println(decryptString(key, data, algorithmType));
