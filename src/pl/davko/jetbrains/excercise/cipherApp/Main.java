@@ -36,6 +36,19 @@ public class Main {
             }
         }
 
+        //Reading data from file when necessary
+
+        if ("".equals(data) && !"".equals(inFile)) {
+            try {
+                File file = new File(inFile);
+                Scanner scanner = new Scanner(file);
+                data = scanner.nextLine();
+                scanner.close();
+            } catch (FileNotFoundException noFileException) {
+                System.out.println(noFileException.getMessage());
+            }
+        }
+
         // Core application
         CipherAction cipherAction = new CipherActionFactory().make(actionType, algorithmType);
         String result = cipherAction.invoke(data, key);
@@ -58,18 +71,5 @@ public class Main {
         } else {
             System.out.println(result);
         }
-
-        //Reading text from file when necessary
-
-        /*if ("".equals(data) && !"".equals(inFile)) {
-            try {
-                File file = new File(inFile);
-                Scanner scanner = new Scanner(file);
-                data = scanner.nextLine();
-                scanner.close();
-            } catch (FileNotFoundException noFileException) {
-                System.out.println(noFileException.getMessage());
-            }
-        }*/
     }
 }
