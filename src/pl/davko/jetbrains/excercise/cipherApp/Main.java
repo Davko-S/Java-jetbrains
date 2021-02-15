@@ -36,9 +36,28 @@ public class Main {
             }
         }
 
+        // Core application
         CipherAction cipherAction = new CipherActionFactory().make(actionType, algorithmType);
         String result = cipherAction.invoke(data, key);
-        System.out.println(result);
+
+        // Printing result on screen or to the file
+        if (isOut) {
+            try {
+                File output = new File(outFile);
+                if (output.createNewFile()) {
+                    System.out.println("File created");
+                } else {
+                    System.out.println("File already exist - data overwritten!");
+                }
+                FileWriter writer = new FileWriter(output);
+                writer.write(result);
+                writer.close();
+            } catch (IOException exception) {
+                System.out.println(exception.getMessage());
+            }
+        } else {
+            System.out.println(result);
+        }
 
         //Reading text from file when necessary
 
@@ -51,48 +70,6 @@ public class Main {
             } catch (FileNotFoundException noFileException) {
                 System.out.println(noFileException.getMessage());
             }
-        }
-
-        //Deciding: encryption or decryption
-
-        if (actionType == ActionType.ENCRYPT) {
-            if (isOut) {
-                try {
-                    File output = new File(outFile);
-                    if (output.createNewFile()) {
-                        System.out.println("File created");
-                    } else {
-                        System.out.println("File already exist");
-                    }
-                    FileWriter writer = new FileWriter(output);
-                    writer.write(encryptString(data, key, algorithmType));
-                    writer.close();
-                } catch (IOException exception) {
-                    System.out.println(exception.getMessage());
-                }
-            } else {
-                System.out.println(encryptString(data, key, algorithmType));
-            }
-        } else if (actionType == ActionType.DECRYPT) {
-            if (isOut) {
-                try {
-                    File output = new File(outFile);
-                    if (output.createNewFile()) {
-                        System.out.println("File created");
-                    } else {
-                        System.out.println("File already exist");
-                    }
-                    FileWriter writer = new FileWriter(output);
-                    writer.write(decryptString(key, data, algorithmType));
-                    writer.close();
-                } catch (IOException exception) {
-                    System.out.println(exception.getMessage());
-                }
-            } else {
-                System.out.println(decryptString(key, data, algorithmType));
-            }
-        } else {
-            System.out.println("You are an idiot!");
         }*/
     }
 }
