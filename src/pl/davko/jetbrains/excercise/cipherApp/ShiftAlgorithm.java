@@ -4,7 +4,7 @@ public class ShiftAlgorithm extends CipherAlgorithm {
 
     @Override
     protected char changeChar(char c, int key) {
-        if (c == ' ') {
+        if (c == ' ' || (int) c < 65) {
             return c;
         } else if ((int) c < 97) {
             int originalPosition = c - 'A';

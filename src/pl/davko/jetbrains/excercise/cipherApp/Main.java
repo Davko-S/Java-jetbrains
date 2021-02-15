@@ -42,7 +42,7 @@ public class Main {
 
         //Reading text from file when necessary
 
-        if ("".equals(data) && !"".equals(inFile)) {
+        /*if ("".equals(data) && !"".equals(inFile)) {
             try {
                 File file = new File(inFile);
                 Scanner scanner = new Scanner(file);
@@ -93,6 +93,6 @@ public class Main {
             }
         } else {
             System.out.println("You are an idiot!");
-        }
+        }*/
     }
 }
