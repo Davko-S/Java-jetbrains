@@ -1,11 +1,5 @@
 package pl.davko.jetbrains.excercise.cipherApp;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -36,40 +30,19 @@ public class Main {
             }
         }
 
-        //Reading data from file when necessary
+        // Reading data from file if necessary i.e. not given in args[]
 
         if ("".equals(data) && !"".equals(inFile)) {
-            try {
-                File file = new File(inFile);
-                Scanner scanner = new Scanner(file);
-                data = scanner.nextLine();
-                scanner.close();
-            } catch (FileNotFoundException noFileException) {
-                System.out.println(noFileException.getMessage());
-            }
+            data = FileManager.readDataFromFile(inFile);
         }
 
         // Core application
+
         CipherAction cipherAction = new CipherActionFactory().make(actionType, algorithmType);
         String result = cipherAction.invoke(data, key);
 
         // Printing result on screen or to the file
-        if (isOut) {
-            try {
-                File output = new File(outFile);
-                if (output.createNewFile()) {
-                    System.out.println("File created");
-                } else {
-                    System.out.println("File already exist - data overwritten!");
-                }
-                FileWriter writer = new FileWriter(output);
-                writer.write(result);
-                writer.close();
-            } catch (IOException exception) {
-                System.out.println(exception.getMessage());
-            }
-        } else {
-            System.out.println(result);
-        }
+
+        System.out.println(isOut ? FileManager.writeDataToFile(result, outFile) : result);
     }
 }
