@@ -8,10 +8,14 @@ import pl.davko.jetbrains.excercise.cipherApp.algorithm.unicode.UnicodeEncryptio
 public class EncryptionFactory {
 
     Encryption make(AlgorithmType algorithmType) {
+
         switch (algorithmType) {
-            case SHIFT: return new ShiftEncryption();
-            case UNICODE: return new UnicodeEncryption();
-            default: return null;
+            case SHIFT:
+                return new ShiftEncryption();
+            case UNICODE:
+                return new UnicodeEncryption();
+            default:
+                return null;
         }
     }
 }

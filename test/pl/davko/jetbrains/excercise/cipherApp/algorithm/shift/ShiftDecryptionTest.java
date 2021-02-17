@@ -13,7 +13,7 @@ class ShiftDecryptionTest {
     }
 
     @Test
-    void checkDecryptionForEmptyString() {
+    void checkIfEmptyStringRemainsUnchanged() {
         basicTestForShiftDecryption("", "", 15);
     }
 
