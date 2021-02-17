@@ -1,4 +1,6 @@
-package pl.davko.jetbrains.excercise.cipherApp;
+package pl.davko.jetbrains.excercise.cipherApp.algorithm.shift;
+
+import pl.davko.jetbrains.excercise.cipherApp.algorithm.CipherAlgorithm;
 
 public class ShiftAlgorithm extends CipherAlgorithm {
 

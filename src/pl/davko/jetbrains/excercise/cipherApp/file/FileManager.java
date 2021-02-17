@@ -1,4 +1,4 @@
-package pl.davko.jetbrains.excercise.cipherApp;
+package pl.davko.jetbrains.excercise.cipherApp.file;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,9 +26,9 @@ public class FileManager {
             File output = new File(filePath);
             String fileStatus;
             if (output.createNewFile()) {
-                fileStatus = "New file created. \nData saved in: " + filePath;
+                fileStatus = "New file created.\nData saved in: " + filePath;
             } else {
-                fileStatus = "File already exists. \nData overwritten in: " + filePath;
+                fileStatus = "File already exists.\nData overwritten in: " + filePath;
             }
             FileWriter writer = new FileWriter(output);
             writer.write(result);

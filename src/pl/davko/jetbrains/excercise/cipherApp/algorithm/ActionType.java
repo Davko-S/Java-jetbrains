@@ -1,4 +1,4 @@
-package pl.davko.jetbrains.excercise.cipherApp;
+package pl.davko.jetbrains.excercise.cipherApp.algorithm;
 
 public enum ActionType {
     ENCRYPT("enc"),

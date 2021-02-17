@@ -1,4 +1,4 @@
-package pl.davko.jetbrains.excercise.cipherApp;
+package pl.davko.jetbrains.excercise.cipherApp.algorithm;
 
 public interface CipherAction {
 
