@@ -1,6 +1,7 @@
 package pl.davko.jetbrains.excercise.factory.table;
 
 public class TableStore extends TableFactory {
+
     @Override
     Table createTable(String type) {
         if (type.toLowerCase().equals("office")) {
