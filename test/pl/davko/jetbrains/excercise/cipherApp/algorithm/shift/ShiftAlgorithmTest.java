@@ -28,12 +28,12 @@ class ShiftAlgorithmTest {
     }
 
     @Test
-    void checkIfARevolvesBackToAWhenKeyIs26() {
+    void checkIfALoopsBackToAWhenKeyIs26() {
         basicCharShift('a', 'a', 26);
     }
 
     @Test
-    void checkIfARevolvesBackToAWhenKeyIsMinus26() {
+    void checkIfALoopsBackToAWhenKeyIsMinus26() {
         basicCharShift('A', 'A', -26);
     }
 
