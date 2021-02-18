@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ShiftAlgorithmTest {
 
-    private void basicCharShift(char inputChar, char expectedChar, int key) {
+    private void basicCharShiftTest(char inputChar, char expectedChar, int key) {
         ShiftAlgorithm algorithm = new ShiftAlgorithm();
         char character = algorithm.changeChar(inputChar, key);
         assertEquals(expectedChar, character);
@@ -14,36 +14,36 @@ class ShiftAlgorithmTest {
 
     @Test
     void checkIfAChangesToBWhenKeyIs1() {
-        basicCharShift('a', 'b', 1);
+        basicCharShiftTest('a', 'b', 1);
     }
 
     @Test
     void checkIfBChangesToAWhenKeyIsMinus1() {
-        basicCharShift('b', 'a', -1);
+        basicCharShiftTest('b', 'a', -1);
     }
 
     @Test
     void checkIfADoesNotChangeIfKeyIs0() {
-        basicCharShift('A', 'A', 0);
+        basicCharShiftTest('A', 'A', 0);
     }
 
     @Test
     void checkIfALoopsBackToAWhenKeyIs26() {
-        basicCharShift('a', 'a', 26);
+        basicCharShiftTest('a', 'a', 26);
     }
 
     @Test
     void checkIfALoopsBackToAWhenKeyIsMinus26() {
-        basicCharShift('A', 'A', -26);
+        basicCharShiftTest('A', 'A', -26);
     }
 
     @Test
     void checkIfSpaceCharacterDoesNotChange() {
-        basicCharShift(' ', ' ', 1);
+        basicCharShiftTest(' ', ' ', 1);
     }
 
     @Test
     void checkIfNonLetterCharDoesNotChange() {
-        basicCharShift('&', '&', 10);
+        basicCharShiftTest('&', '&', 10);
     }
 }

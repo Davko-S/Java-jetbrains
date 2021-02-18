@@ -8,8 +8,8 @@ class ShiftEncryptionTest {
 
     private void basicTestForShiftEncryption(String data, String expectedResult, int key) {
         ShiftEncryption shiftEncryption = new ShiftEncryption();
-        String decryptedResult = shiftEncryption.encrypt(data, key);
-        assertEquals(expectedResult, decryptedResult);
+        String encryptedResult = shiftEncryption.encrypt(data, key);
+        assertEquals(expectedResult, encryptedResult);
     }
 
     @Test
