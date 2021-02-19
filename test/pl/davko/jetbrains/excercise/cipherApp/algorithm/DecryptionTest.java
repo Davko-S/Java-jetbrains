@@ -3,11 +3,11 @@ package pl.davko.jetbrains.excercise.cipherApp.algorithm;
 import org.junit.jupiter.api.Test;
 import pl.davko.jetbrains.excercise.cipherApp.algorithm.shift.ShiftDecryption;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DecryptionTest {
 
-    void testOfInvokingShiftDecryption(String data, String expectedResult, int key) {
+    void testOfInvokingDecryption(String data, String expectedResult, int key) {
         Decryption decryption = new ShiftDecryption();
         String decryptedString = decryption.invoke(data, key);
         assertEquals(expectedResult, decryptedString);
@@ -15,11 +15,11 @@ class DecryptionTest {
 
     @Test
     void checkIfShiftDecryptionIsInvokedWithNegativeKey() {
-        testOfInvokingShiftDecryption("aa aa", "bb bb", -1);
+        testOfInvokingDecryption("aa aa", "bb bb", -1);
     }
 
     @Test
     void checkIfShiftDecryptionIsInvokedWithPositiveKey() {
-        testOfInvokingShiftDecryption("aa aa AA", "zz zz ZZ", 1);
+        testOfInvokingDecryption("aa aa AA", "zz zz ZZ", 1);
     }
 }

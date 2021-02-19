@@ -46,4 +46,9 @@ class UnicodeAlgorithmTest {
     void checkIfNonLetterCharIsChanged() {
         basicCharUnicodeTest('&', '0', 10);
     }
+
+    @Test
+    void checkIfCharIsOutOfBounds() {
+        basicCharUnicodeTest('\f', '�', -15);
+    }
 }
