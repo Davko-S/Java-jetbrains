@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShiftDecryptionTest {
 
+    private final ShiftDecryption shiftDecryption = new ShiftDecryption();
+
     private void basicTestForShiftDecryption(String data, String expectedResult, int key) {
-        ShiftDecryption shiftDecryption = new ShiftDecryption();
         String decryptedResult = shiftDecryption.decrypt(data, key);
         assertEquals(expectedResult, decryptedResult);
     }
@@ -18,7 +19,7 @@ class ShiftDecryptionTest {
     }
 
     @Test
-    void checkDecryptionWhenKeyIs0() {
+    void checkIfTextIsNotDecryptedWhenKeyIs0() {
         basicTestForShiftDecryption("Testing testing", "Testing testing", 0);
     }
 

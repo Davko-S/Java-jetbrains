@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ShiftAlgorithmTest {
 
+    private final ShiftAlgorithm algorithm = new ShiftAlgorithm();
+
     private void basicCharShiftTest(char inputChar, char expectedChar, int key) {
-        ShiftAlgorithm algorithm = new ShiftAlgorithm();
         char character = algorithm.changeChar(inputChar, key);
         assertEquals(expectedChar, character);
     }
@@ -23,7 +24,7 @@ class ShiftAlgorithmTest {
     }
 
     @Test
-    void checkIfADoesNotChangeIfKeyIs0() {
+    void checkIfADoesNotChangeWhenKeyIs0() {
         basicCharShiftTest('A', 'A', 0);
     }
 
