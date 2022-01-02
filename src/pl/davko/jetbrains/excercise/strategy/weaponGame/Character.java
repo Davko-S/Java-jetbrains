@@ -1,6 +1,6 @@
 package pl.davko.jetbrains.excercise.strategy.weaponGame;
 
-public class Character {
+public abstract class Character {
     WeaponBehaviour weapon;
 
     public void fight() {
