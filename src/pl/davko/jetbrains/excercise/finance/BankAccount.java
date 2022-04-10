@@ -1,0 +1,12 @@
+package pl.davko.jetbrains.excercise.finance;
+
+class BankAccount {
+
+    protected String number;
+    protected Long balance;
+
+    public BankAccount(String number, Long balance) {
+        this.number = number;
+        this.balance = balance;
+    }
+}
