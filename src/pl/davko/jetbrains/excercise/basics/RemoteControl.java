@@ -1,5 +1,7 @@
 import java.util.List;
 
+import javax.swing.tree.AbstractLayoutCache;
+
 public class RemoteControl {
     private static final int LENGTH_IN_CM = 15;
     private static final int WIDTH_IN_CM = 4;
@@ -14,7 +16,6 @@ public class RemoteControl {
     private int currentChannel;
 
     public RemoteControl(final String colour) {
-
         this.colour = colour;
     }
 
