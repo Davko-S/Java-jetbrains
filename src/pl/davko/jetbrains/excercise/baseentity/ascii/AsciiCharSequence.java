@@ -1,6 +1,5 @@
-package pl.davko.jetbrains.excercise.ascii;
+package pl.davko.jetbrains.excercise.baseentity.ascii;
 
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class AsciiCharSequence implements java.lang.CharSequence {
