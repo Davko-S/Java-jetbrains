@@ -3,24 +3,8 @@ package pl.davko.jetbrains.excercise.sololearn;
 public class Main {
     public static void main(String[] args) {
 
-        Purchase customer = new Purchase();
-
-        Purchase specialCustomer = new Purchase() {
-          @Override
-          public int totalAmount(int price) {
-              return price - (price*20)/100;
-          }
-        };
-
-        System.out.println(customer.totalAmount(1000));
-        System.out.println(specialCustomer.totalAmount(100000));
-    }
-}
-
-class Purchase {
-    int price;
-
-    public int totalAmount(int price) {
-        return price - (price*10)/100;
+        Gamer gamer1 = new Gamer(Enums.Difficulty.EASY);
+        Gamer gamer2 = new Gamer(Enums.Difficulty.MEDIUM);
+        Gamer gamer3 = new Gamer(Enums.Difficulty.HARD);
     }
 }
