@@ -1,0 +1,2 @@
+1 FUSE: Fusing objects to create weapons etc.
+2 ULTRAHAND: Gelling world objects to create new vehicles etc.

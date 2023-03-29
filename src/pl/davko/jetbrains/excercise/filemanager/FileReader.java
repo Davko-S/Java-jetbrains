@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+///Using Scanner class for file management///
 public class FileReader {
 
     public static void main(String[] args) {
-
         try {
             File testFile = new File("road_to_treasure.txt");
             Scanner scanner = new Scanner(testFile);
